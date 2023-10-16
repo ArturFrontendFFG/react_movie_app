@@ -1,0 +1,33 @@
+@use '../../../assets/scss/' as *;
+.community {
+  width: 100%;
+  height: 300px;
+  background: url("https://image.tmdb.org/t/p/original/lMnoYqPIAVL0YaLP5YjRy7iwaYv.jpg")
+    no-repeat center;
+  background-size: cover;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(89, 32, 127);
+    background: linear-gradient(
+      90deg,
+      rgba(89, 32, 127, 0.55) 13%,
+      rgba(2, 0, 36, 1) 100%,
+      rgba(89, 32, 127, 1) 100%
+    );
+  }
+  .container{
+    position: relative;
+    height: 100%;
+    @include flex(space-between,center);
+
+    .content{
+        width: 60%;
+    }
+  }
+}

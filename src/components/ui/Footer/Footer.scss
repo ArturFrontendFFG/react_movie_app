@@ -1,0 +1,84 @@
+@use "../../../assets/scss/" as *;
+
+.footer {
+  border-top: 1px solid $yellow;
+  padding: 4rem 0;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__app {
+    &-title{
+        font-family: $font-family;
+        font-size: 22px;
+        margin-bottom: 0.75rem;
+    }
+    &-subtitle {
+      display: flex;
+      align-items: center;
+    }
+    &-logoico {
+      margin-right: 10px;
+      height: 3rem;
+      border: 2px solid #fff;
+      padding: 2px;
+      border-radius: 50%;
+    }
+  }
+  &__menu {
+    display: flex;
+    gap: 4rem;
+    &-title {
+      font-size: 22px;
+      font-family: $font-family;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    &-item {
+      padding: 3px 0;
+      &:has(.footer__menu-link_icon) {
+        padding-bottom: 1rem;
+      }
+    }
+    &-link {
+      font-size: 17px;
+      font-weight: 400;
+      color: #fff;
+      opacity: 0.6;
+      transition: opacity 0.175s ease;
+      &:hover {
+        opacity: 1;
+      }
+      &_icon {
+        padding-left: 2rem;
+        position: relative;
+        &:hover::before {
+          color: $yellow;
+        }
+        &::before {
+          content: "\f09a";
+          transition: color 0.175s ease-in;
+          font-size: 14px;
+          border: 1px solid #fff;
+          border-radius: 50%;
+          width: 1.6rem;
+          height: 1.6rem;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: translateY(-50%);
+          font-family: $ico;
+        }
+      }
+      &_instagram {
+        &::before {
+          content: "\f16d";
+        }
+      }
+    }
+  }
+}

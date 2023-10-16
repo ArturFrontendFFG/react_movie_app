@@ -1,0 +1,72 @@
+@use ".././../../assets/scss/" as *;
+
+.wrapper {
+  display: flex;
+  // justify-content: space-around;
+  justify-content: start;
+  width: 100%;
+  .title {
+    font-family: sans-serif;
+    font-size: 23px;
+    margin: 8px 0;
+  }
+  &__cast {
+    &:last-child {
+      margin: 0 60px;
+
+    }
+  }
+  .card {
+    display: block;
+    border: 1px solid #fff;
+    padding: 8px;
+    margin: 12px 0;
+    border-radius: 15px;
+    width: 100%;
+    &__content {
+      display: flex;
+      gap: 30px;
+    }
+    &__image {
+      border-radius: 15px;
+      width: 90px;
+      height: 90px;
+    }
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    &__character {
+      font-size: 14px;
+    }
+  }
+}
+.prev{
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 6em;
+  background-color: #110643;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  user-select: none;
+  .title{
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  &__subtitle{
+    cursor: pointer;
+    font-family: $font-family-sans;
+    color: grey;
+    &:hover{
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+@use "../../../assets/scss/" as *;
+
+.header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #090323;
+  box-shadow: 0px 0px 3px #ffffff8c;
+  transition:padding .3s ease;
+  // padding: 1rem 0 !important;
+  &.hidden{
+   padding: .6rem 0; 
+  }
+  .profile {
+    margin-left: 1.5rem;
+    display: grid;
+    justify-items: center;
+    font-family: $font-family-sans;
+    position: relative;
+    &__avatar {
+      font-family: $font-family-sans;
+      pointer-events: all;
+      cursor: pointer;
+    }
+    &__content {
+      min-width: 178px;
+      width: 100%;
+      background-color: #150355;
+      position: relative;
+      margin-top: 15px;
+
+      &::before {
+        content: "\f0d8";
+        font-family: $ico;
+        color: #150355;
+        position: absolute;
+        left: 50%;
+        top: -15px;
+        z-index: -1;
+        font-size: 25px;
+        transform: translate(-50%);
+      }
+    }
+    &__info {
+      padding: 16px 0;
+      // border-bottom: 0.2px solid #fff;
+      border-bottom: 1px solid rgba(33, 37, 41, 0.15);
+      h2 {
+        font-size: 1em;
+        padding: 0px 20px;
+      }
+      a {
+        // margin-top: 3px;
+        display: block;
+        color: #a69797;
+        padding: 0px 20px;
+
+        font-size: 12.5px;
+      }
+    }
+    &__btn {
+      padding: 6px 20px;
+      display: block;
+      font-size: 0.9em;
+      cursor: pointer;
+      border-top: 1px solid #ffffff73;
+      &:hover {
+        background-color: #23078a;
+      }
+    }
+    .settings__popup{
+      position: absolute;
+      z-index: 9999;
+      top: 35px;
+    }
+  }
+  padding: 2rem 0;
+  &__inner {
+    @include flex(space-between, center);
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    &__list {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    &__item {
+      @include adaptivText(20, 16);
+      position: relative;
+    }
+    &__link {
+      &::before {
+        transition: 0.3s ease;
+        content: "";
+        background: $yellow;
+        width: 0;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+      &._active {
+        color: $yellow;
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+    &__sigin {
+      margin-left: 2rem;
+
+      &-span{
+        font-family: $font-family-sans;
+        font-size: 1rem;
+      }
+    }
+  }
+}

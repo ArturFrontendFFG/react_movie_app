@@ -1,0 +1,139 @@
+@use "../../../assets/scss/" as *;
+// #0b1218
+.account {
+  overflow: hidden;
+
+  &__inner {
+    padding: 40px 0;
+    display: flex;
+    transition: transform 0.3s ease;
+    background-image: radial-gradient(
+      at 30%top,
+      #072e46 0%,
+      rgba($dark-blue, 1) 70%
+    );
+  }
+  .line {
+    padding: 0 6em;
+    display: flex;
+    gap: 40px;
+    // width: 50%;
+    .avatar {
+      transition: 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        &::before {
+          background: #000000c9;
+        }
+        .edit {
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.3s ease;
+      }
+      &.not {
+        &::before,
+        .edit {
+          opacity: 0;
+        }
+      }
+    }
+    .edit {
+      opacity: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      font-size: 56px;
+    }
+
+    .about {
+      &__title {
+        font-family: $font-family-sans;
+        font-size: 2em;
+        margin-right: 10px;
+        display: inline-flex;
+      }
+      &__subtitle {
+        font-family: $font-family-sans;
+        display: inline-block;
+        opacity: 0.7;
+        font-size: 1.1em;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .edit-profile {
+    padding: 0 6em;
+    position: relative;
+    display: flex;
+    .close-edit {
+      color: #ccc;
+      cursor: pointer;
+      position: absolute;
+      left: 35px;
+      top: -15px;
+    }
+    label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+    .edit__overview {
+      @include flex(center, center);
+      &-text {
+        width: 70%;
+        height: 100%;
+        background: transparent;
+        border: 1px solid $blue;
+        padding: 7px;
+        color: #fff;
+        font-family: $font-family-sans;
+        resize: none;
+        &::placeholder {
+          color: $blue;
+        }
+      }
+    }
+  }
+  .favorite {
+    padding: 40px 0;
+    background-color: #01003e;
+
+    &__title {
+      font-family: $font-family-sans;
+      font-size: 28px;
+    }
+    .cart {
+      position: relative;
+      .delete {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+        color: grey;
+      }
+    }
+  }
+}
+
+.MuiTableCell-root {
+  &.MuiTableCell-head {
+    color: #fff;
+  }
+  &.MuiTableCell-body {
+    color: #fff;
+  }
+}

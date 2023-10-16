@@ -1,0 +1,137 @@
+@use "../../../assets/scss/" as *;
+$body-bg: #c1bdba;
+$form-bg: #13232f;
+$white: #ffffff;
+
+$main: #1ab188;
+$main-light: lighten($main, 5%);
+$main-dark: darken($main, 5%);
+
+$gray-light: #a0b3b0;
+$gray: #ddd;
+
+$thin: 300;
+$normal: 400;
+$bold: 600;
+$br: 4px;
+.to-main-page {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.succes {
+  user-select: none;
+  position: absolute;
+  left: 50%;
+  visibility: hidden;
+  transform: translate(-50%);
+  border-radius: 5px;
+  padding: 3rem 5rem;
+  box-shadow: 1px 1px 10px #fff;
+  font-family: $font-family;
+  font-size: 20px;
+  background-color: #fff;
+  color: #000;
+
+  &.anim {
+    animation: appearance 0.3s ease 1;
+    visibility: visible;
+    @keyframes appearance {
+      0% {
+        top: -150px;
+      }
+
+      100% {
+        top: 0px;
+      }
+    }
+  }
+}
+
+.reg {
+  .wrapper {
+    padding: 3rem 0;
+    @include flex(start, center);
+    flex-direction: column;
+    gap: 0;
+
+    .title {
+      margin: 20px 0;
+      @include adaptivText(36,24);
+      font-family: $font-family-sans;
+    }
+
+    .form {
+      width: 450px;
+      display: grid;
+      gap: 15px;
+
+      &__div {
+        display: flex;
+        gap: 15px;
+      }
+      &__input {
+        background: rgb(36, 49, 60);
+        font-size: 22px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 15px 18px;
+        color: #fff;
+        border: 1px solid transparent;
+        height: 58px;
+        &[aria-invalid="false"] {
+          border: 1px solid red;
+          animation: error 0.1s linear 1;
+
+          @keyframes error {
+            0% {
+              transform: translateX(-5px);
+            }
+            50% {
+              transform: translateX(5px);
+            }
+            100% {
+              transform: translateX(0);
+            }
+          }
+          &::placeholder {
+            color: red;
+          }
+        }
+      }
+
+      &__error {
+        margin-top: 4px;
+        color: rgb(255, 13, 13);
+        font-family: monospace;
+      }
+
+      .password {
+        position: relative;
+
+        &__visible {
+          user-select: none;
+          color: $green;
+          font-size: 22px;
+          cursor: pointer;
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      &__btn {
+        padding: 5px 0px;
+        font-family: $font-family-sans;
+        font-size: 33px;
+        border: 3px solid transparent;
+        &:focus{
+          border-color: #1ab188;
+        }
+      }
+    }
+  }
+}

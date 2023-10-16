@@ -1,0 +1,413 @@
+@use "../../../assets/scss/" as *;
+.wrap {
+  padding: 0 2rem;
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  gap: 15px;
+}
+
+.details {
+  &__modal-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9998;
+    transition: 0.3s ease;
+    @include flex(center, center);
+
+    img {
+      height: 90%;
+      position: relative;
+      z-index: 9999;
+      box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.3);
+    }
+   
+  }
+  &__line{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__wrapper {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8rem;
+    padding: 7rem 7rem;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include overlay();
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      background-image: linear-gradient(to top, #000, #00000044);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__poster {
+    position: relative;
+    z-index: 2;
+    width: 400px;
+    height: 500px;
+  }
+
+  &__informations {
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+  }
+
+  &__release {
+    font-family: $font-family-sans;
+  }
+
+  &__genres {
+    margin-left: 25px;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__runtime {
+    margin-left: 25px;
+    font-family: $font-family-sans;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__title {
+    font-size: 35px;
+    font-family: $font-family-sans;
+    cursor: pointer;
+
+    &:hover {
+      color: #ccc;
+
+      span {
+        color: #fff;
+      }
+    }
+  }
+
+  &__genres {
+    font-family: $font-family-sans;
+    font-weight: 400;
+  }
+
+  &__trailer {
+    font-family: $font-family-sans;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 7px 0;
+
+    &::before {
+      content: "\f04b";
+      font-family: $ico;
+      margin-right: 7px;
+    }
+  }
+
+  &__tagline {
+    font-family: $font-family-sans;
+    color: #ccc;
+    font-size: 17px;
+    font-style: italic;
+    margin: 10px 0;
+  }
+
+  &__review {
+    font-family: $font-family-sans;
+    margin-top: 17px;
+  }
+
+  &__carousel {
+    &-link {
+      height: 340px;
+      position: relative;
+      display: block;
+      overflow: hidden;
+
+      &:hover .details__carousel-content {
+        transform: translateY(0);
+      }
+    }
+
+    &-background {
+      height: 100%;
+      width: 100%;
+    }
+
+    &-title {
+      font-family: $font-family;
+      margin-bottom: 20px;
+    }
+
+    &-content {
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+      transition: 0.3s ease;
+      position: absolute;
+      transform: translateY(100px);
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 5px;
+      color: #000;
+      background: #fff;
+      @include flex(space-between, start);
+    }
+
+    &-date {
+      position: relative;
+      margin-left: 20px;
+
+      &::before {
+        content: "\f073";
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: $ico;
+        font-size: 13px;
+      }
+    }
+  }
+  .aside {
+    width: auto;
+    padding: 2rem 0.5rem;
+    margin-top: 10px;
+    height: 100%;
+    position: relative;
+    &::before {
+      z-index: 9999;
+      content: "";
+      width: 100px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -100px;
+      background-image: linear-gradient(to right, #09032300 0, $bg-color 100%);
+      will-change: opacity;
+      pointer-events: none;
+    }
+
+    .facts {
+      &__block {
+        margin-bottom: 20px;
+      }
+      strong {
+        font-family: $font-family;
+        font-weight: 200;
+        display: block;
+        margin-bottom: 2px;
+      }
+      p {
+        font-family: $font-family-sans;
+      }
+    }
+    .keywords {
+      ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      &__title {
+        font-family: $font-family-sans;
+      }
+      &__link {
+        margin: 0 5px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: 1px solid #d7d7d7;
+        padding: 4px 10px;
+        margin: 5px;
+        border-radius: 4px;
+        display: block;
+      }
+    }
+  }
+}
+
+.reviews {
+  &__card {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 10px 15px;
+    justify-content: space-between;
+    margin: 15px 0;
+    box-shadow: 0 0 10px #fff;
+    border-radius: 30px;
+  }
+  &__profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-position: center;
+
+    &_null {
+      @include flex(center, center);
+      font-family: $font-family-sans;
+    }
+  }
+  &__overview {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: $font-family-sans;
+    color: #fff;
+    &:hover {
+      color: $blue;
+    }
+  }
+  &__info {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    &-name {
+      @include flex(end, center);
+    }
+  }
+  &__author-name {
+    font-family: $font-family-sans;
+  }
+}
+.actors {
+  &__link {
+    font-weight: 500;
+    font-size: 20px;
+    color: $green;
+    position: relative;
+
+    &:hover {
+      color: #42e971;
+    }
+    &::before {
+      content: "\f30b";
+      position: absolute;
+      right: -3rem;
+      top: 50%;
+      transform: translateY(-40%);
+      font-family: $ico;
+    }
+  }
+  &__card {
+    &-inner {
+      padding: 5px;
+    }
+    &-profile {
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      height: 230px;
+    }
+
+    &-path {
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      height: 100%;
+    }
+
+    &-content {
+      background-color: #fff;
+      border-radius: 0 0 8px 8px;
+      padding: 1rem;
+      height: 80px;
+    }
+    &-title {
+      color: #000;
+      font-family: sans-serif;
+    }
+    &-character {
+      color: #000;
+      font-size: 14px;
+    }
+  }
+}
+
+.trailer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  @include flex(center, start);
+  gap: 20px;
+  padding: 2rem 0;
+  z-index: 9999;
+
+  iframe {
+    width: 80%;
+    height: 90vh;
+  }
+
+  .close {
+    cursor: pointer;
+    font-size: 2rem;
+    transition: transform 0.275s ease;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.swiper-scrollbar {
+  height: 8px !important;
+}
+
+.swiper-scrollbar-drag {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}

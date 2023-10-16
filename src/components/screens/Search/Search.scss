@@ -1,0 +1,4 @@
+@use "../../../assets/scss/" as *;
+.css-jx3fhb-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+    border-bottom: 1px solid $purple !important ;
+}

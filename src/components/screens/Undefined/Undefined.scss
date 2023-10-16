@@ -1,0 +1,53 @@
+@use "../../../assets/scss/" as *;
+
+.undefined {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://image.tmdb.org/t/p/original/yF1eOkaYvwiORauRCPWznV9xVvi.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include flex(center, center);
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    @include overlay;
+  }
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, $bg-color, rgba(0, 0, 0, 0));
+  }
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+  }
+  &__title{
+    font-family: $font-family;
+    @include adaptivText(190, 60);
+    text-align: center;
+  }
+  &__subtitle{
+    font-family: $font-family;
+    text-align: center;
+    @include adaptivText(40, 20);
+    
+  }
+  &__button{
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,265 @@
+@use "../../../assets/scss/" as *;
+.wrapper {
+  justify-content: space-between;
+  gap: 2rem;
+}
+.main {
+  width: 70%;
+
+  &__title {
+    font-family: $font-family-sans;
+  }
+  &__biography-title {
+    margin: 10px 0;
+    font-size: 1.3em;
+    font-weight: 400;
+    font-family: $font-family-sans;
+  }
+  &__biography-text {
+    padding: 10px 0;
+    font-family: $font-family-sans;
+  }
+  &__biography-block {
+    margin-bottom: 17px;
+    overflow: hidden;
+  }
+  &__biography-more {
+    text-align: right;
+    font-family: $font-family-sans;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    color: #1be354;
+
+    &::after {
+      content: "\f105";
+      font-size: 14px;
+      font-family: $ico;
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &__fame-title {
+    font-family: $font-family-sans;
+    margin-bottom: 10px;
+  }
+  &__fame-image {
+    height: 225px;
+    border-radius: 8px;
+  }
+  &__fame-image + &__fame-title {
+    text-align: center;
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .slider {
+    position: relative;
+    margin: 0;
+    &::after {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-image: to left, $bg-color, blue;
+    }
+    .custom-scrollbar {
+      user-select: none;
+      width: 100%;
+      height: 8px;
+    }
+  }
+  .art {
+    margin: 40px 0;
+    &__title {
+      font-family: $font-family-sans;
+      margin-bottom: 10px;
+    }
+    &__wrapper {
+      border: 1px solid #6a69694d;
+      padding: 5px;
+      border-radius: 3px;
+    }
+    &__card {
+      @include flex(start, center);
+      font-family: $font-family;
+      padding: 20px;
+    }
+    &__subtitle-character {
+      margin-top: 4px;
+      color: grey;
+      font-size: 14px;
+    }
+    &__info {
+      margin: 0 12px;
+      position: relative;
+    }
+    &__popup {
+      z-index: 9999;
+      background-color: rgb(22, 6, 92);
+      padding: 10px;
+      height: 170px;
+      width: 534px;
+      position: absolute;
+      top: -11.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+
+      &::before {
+        content: "";
+        animation: load 3s 1 none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        @keyframes load {
+          0% {
+            background: rgb(3, 3, 43);
+          }
+          100% {
+            background: transparent;
+          }
+        }
+      }
+
+      &-image {
+        height: 100%;
+        border-radius: 5px;
+      }
+      &-stars {
+        background-color: $bg-color;
+        padding: 3px 6px;
+        font-size: 13px;
+        border-radius: 5px;
+
+        &:after {
+          content: "\f005";
+          font-family: $ico;
+          margin-left: 4px;
+        }
+      }
+      &-title {
+        font-size: 22px;
+      }
+      &-overview {
+        margin-top: 8px;
+        font-size: 14px;
+      }
+      &-favorite {
+        background: transparent;
+        color: #fff;
+        &::before {
+          content: "\f004";
+          font-family: $ico;
+        }
+      }
+    }
+    &__round {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      // &:focus + .art__popup {
+      //   visibility: visible;
+      // }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        visibility: hidden;
+        border-radius: 50%;
+      }
+      &:hover::before {
+        visibility: visible;
+      }
+    }
+  }
+}
+.aside {
+  width: 30%;
+  user-select: none;
+  &__profile {
+    width: 270px;
+    height: 375px;
+    border-radius: 15px;
+  }
+  &__socials {
+    display: flex;
+    gap: 1rem;
+    padding: 10px 0 30px 0;
+  }
+  &__icon-block {
+    position: relative;
+  }
+  &__icon-social {
+    margin: 0 10px;
+    &_inst::before {
+      content: "\f16d";
+    }
+    &_tt::before {
+      content: "\e07b";
+    }
+    &_twit::before {
+      content: "\f099";
+    }
+    &_face::before {
+      content: "\f09a";
+    }
+    &_wiki::before {
+      content: "\f266";
+      font-size: 21px !important;
+    }
+    &_home::before {
+      content: "\f08e";
+      border-left: 1px solid #fff;
+      padding-left: 10px;
+    }
+    &_youtube::before {
+      content: "\f167";
+    }
+
+    &:before {
+      display: block;
+      font-size: 22px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      width: 100%;
+      font-family: $ico;
+      color: #fff;
+    }
+  }
+  &__title {
+    font-family: $font-family-sans;
+    letter-spacing: 0.15rem;
+  }
+  &__mixing {
+    padding: 3px 0;
+  }
+  &__subtitle {
+    letter-spacing: 0.13rem;
+    font-family: $font-family-sans;
+    color: $green;
+  }
+  &__main-title {
+    font-family: $font-family-sans;
+  }
+}

@@ -1,0 +1,30 @@
+@mixin flex($justify-content,$align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+@mixin position($position, $left, $right) {
+  position: $position;
+  left: $left;
+  right: $right;
+}
+@mixin overlay {
+  background: rgba($color: #000, $alpha: 0.5);
+}
+
+@mixin textShadow($bias,$blur,$color){
+  text-shadow: $bias $bias $blur $color;
+}
+@mixin text {
+  font-size: 15px;
+  color: #d8d8dc;
+}
+
+$maxWidth: 1280;
+@mixin adaptivText($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 280;
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
+  );
+}

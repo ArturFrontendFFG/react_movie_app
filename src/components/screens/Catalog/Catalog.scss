@@ -1,0 +1,15 @@
+.MuiPaginationItem-sizeLarge.MuiPaginationItem-outlined {
+  background-color: #1976d2;
+  border: 1.5px solid transparent;
+  color: #fff;
+  &:hover {
+    border-color: #1976d2;
+  }
+  &[aria-current="true"] {
+    background-color: #810596;
+    color: #d365e7;
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}

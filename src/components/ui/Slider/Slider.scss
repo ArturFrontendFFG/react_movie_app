@@ -1,0 +1,136 @@
+@use "../../../assets/scss/" as *;
+
+.slider {
+  margin-bottom: 3rem;
+  &__slide {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &.container {
+      max-width: 100%;
+      margin: 0;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to top, $bg-color, rgba(0, 0, 0, 0.4));
+    }
+  }
+  &__slide-content {
+    @include flex(start, center);
+    padding: 3rem 0;
+  }
+  &__slide-info {
+    padding: 0 3rem 3rem 0rem;
+    position: relative;
+    z-index: 1;
+    max-width: 60%;
+  }
+  &__slide-release {
+    color: $ligh-white;
+    display: flex;
+    gap: 6px;
+  }
+  &__slide-date {
+    font-family: $font-family;
+    font-size: 14px;
+  }
+  &__slide-line {
+    background-color: $grey-color;
+    width: 1px;
+  }
+  &__slide-title-content {
+    @include flex(start, center);
+    gap: 7px;
+  }
+  &__slide-title {
+    font-family: $font-family;
+    color: #fff;
+    margin: 10px 0;
+  }
+  &__slide-subtitle {
+    color: $yellow;
+    @include textShadow(0px, 10px, $yellow);
+  }
+  &__slide-average {
+    position: relative;
+    margin-left: 1.5rem;
+
+    &::before {
+      font-family: $ico;
+      content: "\f005";
+      position: absolute;
+      left: -23px;
+      transform: translateY(-50%);
+      top: 50%;
+      color: #fff;
+    }
+  }
+  &__slide-overview {
+    margin-top: 20px;
+    font-family: $font-family;
+    font-weight: 700;
+    line-height: 1.3rem;
+    padding-right: 4rem;
+    color: #f0e4e4;
+    @include adaptivText(15, 12);
+  }
+  &__slide-genres {
+    margin-top: 30px;
+    font-family: $font-family;
+    @include adaptivText(17, 14);
+  }
+  &__slide-subgenres {
+    color: $yellow;
+    @include textShadow(0, 10px, #f0ae27);
+  }
+  &__slide-buttons {
+    margin-top: 15px;
+    display: flex;
+    align-items: stretch;
+  }
+  &__slide-watch {
+    margin-right: 17px;
+  }
+  &__slide-poster {
+    max-width: 40%;
+  }
+  &__slide-posterImage {
+    min-width: 100%;
+  }
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-bullet {
+    background: #fff !important;
+    display: block !important;
+    height: 10px !important;
+    width: 10px !important;
+
+    &-active {
+      width: 24px !important;
+      height: 5px !important;
+      border-radius: 36px !important;
+      transition: width 1s ease;
+      background: #f0ae27 !important;
+    }
+  }
+}

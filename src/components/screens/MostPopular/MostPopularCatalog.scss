@@ -1,0 +1,6 @@
+@use "../../../assets/scss/" as *;
+.MuiChip-root .MuiChip-clickableColorSecondary {
+  span {
+    font-family: $font-family-sans !important;
+  }
+}
